@@ -7,13 +7,9 @@ import {
   ChevronLeft,
   ChevronRight,
   CreditCard,
-  Loader2,
   MapPin,
-  Navigation,
-  Phone,
   ShoppingBasket,
   Smartphone,
-  User,
   Wallet,
   X,
 } from "lucide-react";
@@ -26,7 +22,7 @@ import {
   PaymentMethod,
 } from "@/lib/deliveryUtils";
 
-// استدعاء الخريطة بشكل ديناميكي
+
 const MapPicker = dynamic(() => import("./MapPicker"), { 
   ssr: false,
   loading: () => <div className="h-full w-full bg-zinc-100 animate-pulse flex items-center justify-center font-bold">جاري تحميل الخريطة...</div>
@@ -53,7 +49,7 @@ export default function OrderModal({ item, onClose, isOpen }: Props) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [deliveryType, setDeliveryType] = useState<DeliveryType>("delivery");
-  const [notes, setNotes] = useState("");
+  const [notes] = useState("");
   const [address, setAddress] = useState("");
   const [lat, setLat] = useState<number | null>(null);
   const [lng, setLng] = useState<number | null>(null);
@@ -70,7 +66,6 @@ export default function OrderModal({ item, onClose, isOpen }: Props) {
     return () => { document.body.style.overflow = ""; };
   }, []);
 
-  // سكرول لفوق عند تغيير الخطوة
   useEffect(() => {
     if (scrollRef.current) scrollRef.current.scrollTop = 0;
   }, [step]);
@@ -207,7 +202,7 @@ export default function OrderModal({ item, onClose, isOpen }: Props) {
                     <label className="flex items-center gap-2 text-sm font-black text-zinc-700">
                       <MapPin size={16} className="text-red-500" /> حدد موقعك على الخريطة
                     </label>
-                    <div className="h-64 w-full rounded-[2rem] overflow-hidden border-4 border-zinc-100 shadow-inner relative">
+                    <div className="h-64 w-full rounded-4xl overflow-hidden border-4 border-zinc-100 shadow-inner relative">
                       <MapPicker 
                         onLocationSelect={applyLocation} 
                         initialLat={lat || undefined} 
@@ -252,7 +247,7 @@ export default function OrderModal({ item, onClose, isOpen }: Props) {
 
           {step === 3 && (
             <div className="space-y-6">
-              <div className="bg-zinc-900 rounded-[2rem] p-6 text-white shadow-xl relative overflow-hidden">
+              <div className="bg-zinc-900 rounded-4xl p-6 text-white shadow-xl relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-red-500/10 rounded-full -mr-16 -mt-16 blur-2xl" />
                 <p className="text-[10px] font-black text-zinc-400 uppercase tracking-widest mb-4">ملخص الحساب</p>
                 <div className="space-y-3">
