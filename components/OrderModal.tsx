@@ -32,7 +32,7 @@ const MapPicker = dynamic(() => import("./MapPicker"), {
   loading: () => <div className="h-full w-full bg-zinc-100 animate-pulse flex items-center justify-center font-bold">جاري تحميل الخريطة...</div>
 });
 
-const PHONE_INTERNATIONAL = "201505084968";
+const PHONE_INTERNATIONAL = "201551359749";
 
 interface Props {
   item: { name: string; price: number } | null;

@@ -15,8 +15,8 @@ import {
   Sparkles,
 } from "lucide-react";
 import OrderModal from "@/components/OrderModal";
-const phoneDisplay = "01505084968";
-const phoneInternational = "201505084968";
+const phoneDisplay = "01551359749";
+const phoneInternational = "201551359749";
 
 const socialLinks = [
   {
